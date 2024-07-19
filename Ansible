@@ -1,0 +1,31 @@
+#Ansible
+
+#install on linux and login with password authentication
+
+1. Rename worker node
+      sudo -i
+      hostnamectl set-hostname ansible/dev-1
+  
+2. Give permission to master node 
+      sudo passwd root
+      vim /etc/ssh/sshd_config  (38 uncomment, 63 no=yes)
+      systemctl restart sshd
+      systemctl status sshd
+
+3. ANSIBLE SERVER on linux:
+      amazon-linux-extras install ansible2 -y
+      yum install python python-pip python-dlevel -y
+
+4. Command run on master ansible server to login to worker node
+    ssh-keygen
+    ssh-copy-id root@private-ip    [private-ip of worker server]
+    ssh private-ip                 [check connection with worker node]
+
+
+**ansible playbook 
+
+playbook is a collection of modules.
+we can execute multiple modules at same time.
+we can reuse the playbook.
+playbook will be written on YAML language.
+yaml is syntax-based.
