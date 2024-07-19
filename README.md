@@ -1,7 +1,6 @@
 # Ansible
 
 its a free and open-source tool.
-
 its an it engine that automates from server creation to deployment.
 
 It is also called a configuration management tool.
