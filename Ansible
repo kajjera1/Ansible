@@ -122,3 +122,29 @@ my_role/
 │   └── test.yml
 └── vars/
     └── main.yml
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+**ANSIBLE-GALAXY
+
+used to store playbooks like code on github. 
+we can browse and download roles contributed by the community.
+
+ex-
+ansible-galaxy search java
+ansible-galaxy init <role_name>
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+* Ansible Vault
+With Ansible Vault, you can use password environment variables to secure your most sensitive data
+
+Technique: AES256 (USED BY FACEBOOK)
+[Note: we can restrict the users to access the playbook also]
+
+command 
+ansible-vault create file.yml      : to create a vault
+ansible-vault edit file.yml        : to edit a vault
+ansible-vault rekey file.yml       : to change password for a vault
+ansible-vault decrypt file.yml     : to decrypt the content    
+ansible-vault encrypt file.yml     : to encrypt the content    
+ansible-vault view file.yml        : to show the content without decrypt
