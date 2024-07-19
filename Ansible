@@ -29,3 +29,28 @@ we can execute multiple modules at same time.
 we can reuse the playbook.
 playbook will be written on YAML language.
 yaml is syntax-based.
+
+
+**install nginx and start nginx write playbook
+ 
+ 1. vim <name of playbook>.yml
+    vim first-palybook.yml
+ 
+ 2.
+ ---
+ - name: Install and start nginx     -> descriptive name for playbook.
+   hosts: all                        -> execute in all server
+   become: root                      -> to excute as root user
+   
+   task:                             -> This is where you define a list of tasks to be executed.
+     - name: Install nginx           -> description of the task.
+       apt:
+         name: nginx
+         state: present
+         
+   handlers:      
+     - name: start nginx
+       service:
+         name: nginx
+         state: started
+  ... 
