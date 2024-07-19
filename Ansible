@@ -30,7 +30,7 @@ we can reuse the playbook.
 playbook will be written on YAML language.
 yaml is syntax-based.
 
----------------------------------------------
+++++++++++++++++++++++++++++
 ** components of an Ansible playbook.
 
  Name: The name of the playbook provides a descriptive label for identifying its purpose and function
@@ -73,3 +73,52 @@ yaml is syntax-based.
 
     ansible-playbook <name of playbook>
 
++++++++++++++++++++++++++++++++++++
+**Ansible role 
+
+ way of organizing and structuring playbooks and related files to facilitate the reuse and management of tasks in Ansible, Role Dependencies
+
+*Roles contain directories and files:
+
+1.tasks:
+  Tasks are the individual actions that Ansible performs, such as installing packages, managing files, or restarting services.
+
+2. handlers: 
+   They are used to respond to specific events, such as restarting a service after a configuration file has been updated.
+
+3. templates: 
+  used to generate configuration files dynamically based on variables defined in the playbook or inventory.
+
+4. files:
+   contains static files that can be copied to the target hosts during playbook execution.
+   
+5. vars:
+ These variables can be used within tasks, templates, and other files to make roles more flexible and reusable.
+
+6. defaults: 
+  This directory contains YAML files defining default variables for the role. 
+
+7. meta: 
+ defining metadata about the role, such as dependencies on other roles, supported platforms.
+
+
+** directories structure Ansible role:
+
+[this in css formate]
+
+my_role/
+├── defaults/
+│   └── main.yml
+├── files/
+├── handlers/
+│   └── main.yml
+├── meta/
+│   └── main.yml
+├── tasks/
+│   └── main.yml
+├── templates/
+├── tests/
+│   ├── inventory
+│   └── test.yml
+└── vars/
+    └── main.yml
