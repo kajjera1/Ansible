@@ -30,7 +30,20 @@ we can reuse the playbook.
 playbook will be written on YAML language.
 yaml is syntax-based.
 
+---------------------------------------------
+** components of an Ansible playbook.
 
+ Name: The name of the playbook provides a descriptive label for identifying its purpose and function
+ 
+ Hosts: This section specifies the target hosts or groups of hosts, on which the tasks defined in the playbook will be executed. 
+ 
+ Become: The become keyword allows Ansible to execute tasks with escalated privileges
+ 
+ Tasks: The tasks section defines the list of actions or operations that Ansible should perform on the target hosts
+ 
+ Handlers: Handlers are tasks that are only executed when notified by other tasks.
+
+---------------------------------------------
 **install nginx and start nginx write playbook
  
  1. vim <name of playbook>.yml
@@ -53,4 +66,10 @@ yaml is syntax-based.
        service:
          name: nginx
          state: started
-  ... 
+  ...
+
+
+**run ansible playbook command
+
+    ansible-playbook <name of playbook>
+
