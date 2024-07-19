@@ -43,6 +43,28 @@ yaml is syntax-based.
  
  Handlers: Handlers are tasks that are only executed when notified by other tasks.
 
++++++++++++++++++++++++++++++++++++++++++++++
+** ansible module 
+
+1.System Modules:
+
+apt: Manages packages on Debian-based systems.
+yum: Manages packages on Red Hat-based systems.
+dnf: Manages packages on newer Fedora and CentOS systems.
+service: Manages services on a system.
+user and group: Manages users and groups on a system.
+
+2.File Modules:
+
+copy: Copies files to remote hosts.
+file: Manages file attributes (permissions, ownership, etc.).
+template: Manages templates for configuration files.
+
+3.Package Modules:
+
+pip: Manages Python packages.
+npm: Manages Node.js packages.
+
 ---------------------------------------------
 **install nginx and start nginx write playbook
  
@@ -138,7 +160,7 @@ ansible-galaxy init <role_name>
 * Ansible Vault
 With Ansible Vault, you can use password environment variables to secure your most sensitive data
 
-Technique: AES256 (USED BY FACEBOOK)
+Technique: AES256 
 [Note: we can restrict the users to access the playbook also]
 
 command 
@@ -148,3 +170,16 @@ ansible-vault rekey file.yml       : to change password for a vault
 ansible-vault decrypt file.yml     : to decrypt the content    
 ansible-vault encrypt file.yml     : to encrypt the content    
 ansible-vault view file.yml        : to show the content without decrypt
+
+++++++++++++++++++++++++++++++++++++++++++++
+**Ansible adhoc command
+
+commands that you can run from the command line without the need to create separate playbooks. 
+
+command ->
+ansible <target hosts> -m <module> -a "<module arguments>"
+
+here
+-m <module> -> Specifies the Ansible module  
+-a "<module arguments> -> Specifies the arguments or parameters
+
